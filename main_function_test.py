@@ -50,34 +50,11 @@ def Detec_CTSB(mask_inverse, mask):
         print("the size is" + " 345 x " + str(final_point.size) + "P")
         
   
-try:
-    capture = cv2.VideoCapture(1)
-    
-    while(True):
-        ret, frame = capture.read()
-        if ret == False:
-            print('カメラから映像を取得できませんでした。')
-            break
-        
-        img , mask = img_pretreatment(frame)
-        Detec_CTSB(img, mask)
-        #cv2.imshow('f', gray)
-        
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-    
-    capture.release()
-    cv2.destroyAllWindows()
-    
-except:
-    import sys
-    print("Error:", sys.exc_info()[0])
-    print(sys.exc_info()[1])
-    import traceback
-    print(traceback.format_tb(sys.exc_info()[2]))      
 
 
-    
+upstate = cv2.imread("c:\\Users\\merro\\Desktop\\345-50.jpg")
+img , mask = img_pretreatment(upstate)
+Detec_CTSB(img, mask)
     
     
 
